@@ -1,0 +1,39 @@
+Script started on 2020-09-25 05:40:25-07:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="206" LINES="9"]
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ phpruby[1Pphp[Kphprubyexitruby[1Pphp[K/bin/sceipr[K[K[K[Krpt[Kt.sh
+bash: /bin/scrpt.sh: No such file or directory
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ ./b[K[K[K.[K/b[K[K/bin/wepack-dev-server
+bash: /bin/wepack-dev-server: No such file or directory
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ ./bo[Kin/webpacl-[K[Kk-dev0[K-server
+/usr/bin/env: ‘ruby’: No such file or directory
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ ruby
+
+Command 'ruby' not found, but can be installed with:
+
+sudo apt install ruby
+
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ rails
+bash: /mnt/c/Ruby26-x64/bin/rails: ruby: bad interpreter: No such file or directory
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ ls[Ks
+[0m[01;32mGemfile[0m       [01;32mREADME.md[0m  [34;42mapp[0m              [34;42mbin[0m     [01;32mconfig.ru[0m  [34;42mlib[0m  [34;42mnode_modules[0m  [01;32mpostcss.config.js[0m  [01;32mscript.sh[0m  [34;42mtest[0m  [01;32mtypescript[0m  [01;32myarn-error.log[0m
+[01;32mGemfile.lock[0m  [01;32mRakefile[0m   [01;32mbabel.config.js[0m  [34;42mconfig[0m  [34;42mdb[0m         [34;42mlog[0m  [01;32mpackage.json[0m  [34;42mpublic[0m             [34;42mstorage[0m    [34;42mtmp[0m   [34;42mvendor[0m      [01;32myarn.lock[0m
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ chmod
+chmod: missing operand
+Try 'chmod --help' for more information.
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ chomd --help
+
+Command 'chomd' not found, did you mean:
+
+  command 'chmod' from deb coreutils (8.30-3ubuntu2)
+
+Try: sudo apt install <deb name>
+
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ bundle
+
+Command 'bundle' not found, but can be installed with:
+
+sudo apt install ruby-bundler
+
+]0;ahmed@DESKTOP-0BS14N5: /mnt/d/ruby-on-rails/kurdoverflow[01;32mahmed@DESKTOP-0BS14N5[00m:[01;34m/mnt/d/ruby-on-rails/kurdoverflow[00m$ exit
+exit
+
+Script done on 2020-09-25 05:43:15-07:00 [COMMAND_EXIT_CODE="127"]

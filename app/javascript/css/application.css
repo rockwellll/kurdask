@@ -1,0 +1,166 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+
+.bg-primary {
+    background-color: #2A4AA2;
+}
+
+.bg-primary-900 {
+    background-color: rgba(42, 74, 162, .9);
+}
+.text-primary-900 {
+    color: rgba(42, 74, 162, .9);
+}
+
+.bg-primary-800 {
+    background-color: rgba(42, 74, 162, .8);
+}
+
+.bg-accent {
+    background-color: #B21A49;
+}
+
+.bg-accent-900 {
+    background-color: rgba(178, 26, 73, .9);
+}
+
+.bg-accent-800 {
+    background-color: rgba(178, 26, 73, .8);
+}
+
+.border-primary {
+    border-color: #2A4AA2;
+}
+
+.border-accent {
+    border-color: #B21A49;
+}
+
+.text-primary {
+    color: #2A4AA2;
+}
+
+.text-accent {
+    color: #B21A49;
+}
+
+input {
+    @apply rounded-md bg-white border-2 text-gray-700 p-1 outline-none;
+}
+
+input:focus {
+    @apply border-primary;
+}
+
+input.accent:focus {
+    @apply border-accent
+}
+
+button.btn-primary {
+    @apply rounded-md bg-primary border-none text-white;
+}
+
+button.btn-primary:hover {
+    @apply bg-primary-800;
+}
+
+button.btn-primary:focus {
+    @apply outline-none shadow-outline
+}
+
+button.btn-accent {
+    @apply rounded-md bg-accent border-none text-white;
+}
+
+button.btn-accent:focus {
+    @apply outline-none shadow-outline
+}
+
+button.btn-accent:hover {
+    @apply bg-accent-800
+}
+
+a.link-primary {
+    @apply text-primary-900;
+    text-decoration: underline;
+    text-decoration-color: #2A4AA2;
+}
+
+a.link-primary:hover {
+    @apply text-primary;
+    text-decoration-color: #2A4AA2;
+}
+
+.padded-underline {
+    text-underline-position: under;
+}
+
+/*.color-primary {*/
+/*    color: #8382f5;*/
+/*}*/
+
+/*.bg-secondary {*/
+/*    background-color: #D7D6F1;*/
+/*}*/
+
+/*.bg-secondary:hover {*/
+/*    background-color: #9795F8;*/
+/*}*/
+
+/*.border-primary {*/
+/*    border-color: #9795F8;*/
+/*}*/
+
+/*.bg-primary {*/
+/*    background-color: #8382f5;*/
+/*}*/
+
+/*.bg-primary:hover {*/
+/*    background-color: #9795F8;*/
+/*}*/
+
+/*.bg-primary-outline {*/
+/*    border-color: #9795F8;*/
+/*}*/
+
+
+/*.bg-primary-outline:hover{*/
+/*    background-color: #8382f5;*/
+/*    color: white;*/
+/*}*/
+
+
+/*.color-secondary {*/
+/*    color: #736EFF;*/
+/*}*/
+
+/*.color-tertiary {*/
+/*    color: #D7D6F1;*/
+/*}*/
+
+/*table { border-collapse: revert;  border-spacing: 0 10px; }*/
+
+/*th:first-child {*/
+/*    border-top-left-radius: 10px;*/
+/*    border-bottom-left-radius: 10px;*/
+/*}*/
+
+/*th:last-child {*/
+/*    border-top-right-radius: 10px;*/
+/*    border-bottom-right-radius: 10px;*/
+/*}*/
+
+
+/*.link {*/
+/*    text-decoration-color: #D7D6F1;*/
+/*    text-underline-color: #D7D6F1;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*.link:hover {*/
+/*    color: #736EFF;*/

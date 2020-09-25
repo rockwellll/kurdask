@@ -1,0 +1,1 @@
+./bin/weppack-dev-server

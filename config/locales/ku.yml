@@ -1,0 +1,18 @@
+ku:
+  hello: "Hello world in kurdish"
+  nav:
+    login: "چوونه‌ژووره‌وه‌"
+    signup: "هه‌ژمارێک دروست بکه‌"
+    search: "بگه‌ڕێ به‌دوو پرسیارێک"
+  page-title:
+    home: "سه‌ره‌کی"
+  auth:
+    email: "ئیمه‌ێڵ"
+    password: "وشه‌ی نهێنی"
+    confirm_password: "دووباره‌ وشه‌ی نهێنی بنووسه‌"
+    passwords_dont_match: "وشه‌ نهێنیه‌کان ده‌بێت وه‌ک یه‌ک بن"
+    about_community: "وه‌ره‌ ناو جیاوازترین سه‌کۆی کوردی بۆ پرسیارکردن"
+    ask_questions: "گیر بوویت؟ پرسیار بکه‌"
+    answer_questions: "یارمه‌تی که‌سێک بده، خاڵ وه‌ربگره, بناسرێ له‌ناو سه‌کۆکه‌‌"
+  user:
+    username: "ناوی به‌کارهێنه‌ر"
