@@ -14,6 +14,7 @@ ku:
     about_community: "وه‌ره‌ ناو جیاوازترین سه‌کۆی کوردی بۆ پرسیارکردن"
     ask_questions: "گیر بوویت؟ پرسیار بکه‌"
     answer_questions: "یارمه‌تی که‌سێک بده، خاڵ وه‌ربگره, بناسرێ له‌ناو سه‌کۆکه‌‌"
+    remember_me: "له‌ ژووره‌وه‌ بمهێله‌ره‌وه‌"
   user:
     username: "ناوی به‌کارهێنه‌ر"
   activerecord:
@@ -23,12 +24,16 @@ ku:
           attributes:
             username:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+              taken: "ئه‌م ناوی به‌کارهێنه‌ره‌ پێشتر داخڵ کراوه‌"
             password:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+              too_short: "وشه‌ی نهێنی کورته‌، ده‌بێت له‌ ٦ پیت زیاتر بێت"
             email:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+              taken: "ئه‌م ئیمه‌یڵه‌ پێشتر داخڵ کراوه‌"
             password_confirmation:
               confirmation: "وشه‌ نهێنیه‌کان وه‌ک یه‌ک نین"
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه"
   errors:
     messages:
       not_saved: ""

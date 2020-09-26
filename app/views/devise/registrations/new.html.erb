@@ -34,38 +34,46 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="flex w-full flex-col my-1">
-        <%= f.label t "auth.email", class: "text-sm" %>
+        <label for="user_email">
+          <%= t 'auth.email' %>
+        </label>
         <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "w-full" %>
-        <% if resource.errors[:email]%>
-             <span class="text-red-400"><%= resource.errors[:email][0] %></span>
+        <% if resource.errors[:email] %>
+          <span class="error"><%= resource.errors[:email][0] %></span>
         <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
-        <%= f.label t "user.username", class: "text-sm"  %>
+        <label for="user_username">
+          <%= t 'user.username' %>
+        </label>
         <%= f.text_field :username, autofocus: false, class: "w-full" %>
         <% if resource.errors[:username] %>
-          <span class="text-red-400"><%= resource.errors[:username][0] %></span>
+          <span class="error"><%= resource.errors[:username][0] %></span>
         <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
-        <%= f.label t "auth.password", class: "text-sm"  %>
+        <label for="user_password">
+          <%= t 'auth.password' %>
+        </label>
         <%# if @minimum_password_length %>
         <!--        <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
         <%# end %>
         <%= f.password_field :password, autocomplete: "new-password", class: "w-full" %>
 
         <% if resource.errors[:password] %>
-          <span class="text-red-400"><%= resource.errors[:password][0] %></span>
+          <span class="error"><%= resource.errors[:password][0] %></span>
         <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
-        <%= f.label t 'auth.confirm_password', class: "text-sm"  %>
+        <label for="user_password_confirmation">
+          <%= t 'auth.confirm_password' %>
+        </label>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full" %>
         <% if resource.errors[:password_confirmation] %>
-          <span class="text-red-400"><%= resource.errors[:password_confirmation][0] %></span>
+          <span class="error"><%= resource.errors[:password_confirmation][0] %></span>
         <% end %>
       </div>
 
@@ -75,7 +83,7 @@
     <% end %>
 
 
-    <%= render "devise/shared/links"%>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
 

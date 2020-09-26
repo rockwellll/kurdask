@@ -50,8 +50,16 @@
 }
 
 input {
-    @apply rounded-md bg-white border-2 text-gray-700 p-1 outline-none;
+    @apply rounded-md bg-white border-2 text-gray-700 p-1 outline-none w-full;
 }
+
+input[type="checkbox"] {
+    padding: unset;
+    width: unset;
+    border: unset;
+    margin: unset;
+}
+
 
 input:focus {
     @apply border-primary;
@@ -98,6 +106,10 @@ a.link-primary:hover {
 
 .padded-underline {
     text-underline-position: under;
+}
+
+.error {
+    @apply text-red-400 text-xs mt-1;
 }
 
 /*.color-primary {*/
