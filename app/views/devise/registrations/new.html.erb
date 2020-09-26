@@ -29,18 +29,24 @@
                  }
         ) do |f| %>
       <header class="text-center">
-        <h2><%= t 'nav.signup' %></h2>
+        <h2 class="text-primary text-3xl"><%= t 'nav.signup' %></h2>
       </header>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="flex w-full flex-col my-1">
         <%= f.label t "auth.email", class: "text-sm" %>
-        <%= f.email_field :email, autofocus: false, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "w-full" %>
+        <% if resource.errors[:email]%>
+             <span class="text-red-400"><%= resource.errors[:email][0] %></span>
+        <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
         <%= f.label t "user.username", class: "text-sm"  %>
-        <%= f.email_field :username, autofocus: false %>
+        <%= f.text_field :username, autofocus: false, class: "w-full" %>
+        <% if resource.errors[:username] %>
+          <span class="text-red-400"><%= resource.errors[:username][0] %></span>
+        <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
@@ -48,12 +54,19 @@
         <%# if @minimum_password_length %>
         <!--        <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
         <%# end %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "w-full" %>
+
+        <% if resource.errors[:password] %>
+          <span class="text-red-400"><%= resource.errors[:password][0] %></span>
+        <% end %>
       </div>
 
       <div class="flex w-full flex-col my-1">
         <%= f.label t 'auth.confirm_password', class: "text-sm"  %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full" %>
+        <% if resource.errors[:password_confirmation] %>
+          <span class="text-red-400"><%= resource.errors[:password_confirmation][0] %></span>
+        <% end %>
       </div>
 
       <button type="submit" class="self-center btn-primary mt-2 px-3 py-1">

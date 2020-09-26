@@ -16,3 +16,19 @@ ku:
     answer_questions: "یارمه‌تی که‌سێک بده، خاڵ وه‌ربگره, بناسرێ له‌ناو سه‌کۆکه‌‌"
   user:
     username: "ناوی به‌کارهێنه‌ر"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+            password:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+            email:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+            password_confirmation:
+              confirmation: "وشه‌ نهێنیه‌کان وه‌ک یه‌ک نین"
+  errors:
+    messages:
+      not_saved: ""
