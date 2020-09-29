@@ -1,5 +1,32 @@
-<h1>New Question</h1>
 
-<%= render 'form', question: @question %>
+<div id="test" class="w-full flex flex-col md:flex-row-reverse items-start justify-center mt-2 md:mt-10">
 
-<%= link_to 'Back', questions_path %>
+  <aside class="w-3/12 rounded rounded-md shadow border mx-5 py-4 bg-white">
+    <header>
+      <h2 class="mr-3"><%= t 'questions.new.aside.try_to_include' %></h2>
+    </header>
+    <ol style="list-style-type: decimal" class="p-10 py-2">
+      <li class="my-2">
+        <%= t '.aside.make_it_clear' %>
+      </li>
+      <li class="my-2">
+        <%= t '.aside.what_you_tried' %>
+      </li>
+      <li class="my-2">
+        <%= t '.aside.include_some_code_maybe' %>
+      </li>
+    </ol>
+  </aside>
+
+  <div class="w-full flex flex-col justify-center md:w-5/12">
+    <header class="md:text-3xl">
+      <h1 class="text-right"><%= t 'questions.new.ask_new_question' %></h1>
+    </header>
+
+    <h1>New Question</h1>
+
+    <%= render 'form', question: @question %>
+
+    <%= link_to 'Back', questions_path %>
+  </div>
+</div>

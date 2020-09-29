@@ -7,6 +7,7 @@
 
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'hello_vue', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body style="background: #EEF0F1; direction: rtl;">
@@ -23,24 +24,29 @@
     </div>
 
 
-    <ul class="flex justify-end items-center hidden md:flex text-xs">
-      <li class="mx-2 bg-primary py-2 px-3 rounded-md text-white">
-        <a href="<%= user_session_path %>"><%= t 'nav.login' %></a>
-      </li>
-      <li class="mx-2 bg-accent py-2 px-2 rounded-md text-white">
-        <a href="<%= new_user_registration_path %>"><%= t 'nav.signup' %></a>
-      </li>
-
+    <ul class="flex justify-<%= current_user ? "start" : "end"%> items-center hidden md:flex md:w-6/12 text-xs">
       <% if current_user %>
-        <li class="mx-2 bg-accent py-2 px-2 rounded-md text-white">
+        <li class="mx-2 bg-primary py-2 px-3 rounded-md text-white">
+          <a href="<%= new_question_path %>"><%= t 'nav.ask' %></a>
+        </li>
+
+        <li class="mx-2">
           <form action="<%= destroy_user_session_path %>" method="post">
             <input name="_method" type="hidden" value="delete">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-            <button type="submit">
-               Logout
+            <button type="submit" class="btn-primary py-2 px-2 rounded-md text-white">
+               <%= t 'auth.logout' %>
             </button>
           </form>
+        </li>
+
+        <% else %>
+        <li class="mx-2 bg-primary py-2 px-3 rounded-md text-white">
+          <a href="<%= user_session_path %>"><%= t 'nav.login' %></a>
+        </li>
+        <li class="mx-2 bg-accent py-2 px-2 rounded-md text-white">
+          <a href="<%= new_user_registration_path %>"><%= t 'nav.signup' %></a>
         </li>
       <% end %>
     </ul>
@@ -48,6 +54,12 @@
 
 </header>
 
-<%= yield %>
+  <main id="app" class="md:px-10 flex flex-col justify-center items-center">
+    <%= yield %>
+  </main>
+
+
+<%= debug(params) %>
+
 </body>
 </html>

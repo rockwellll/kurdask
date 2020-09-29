@@ -4,6 +4,7 @@ ku:
     login: "چوونه‌ژووره‌وه‌"
     signup: "هه‌ژمارێک دروست بکه‌"
     search: "بگه‌ڕێ به‌دوو پرسیارێک"
+    ask: "پرسیارێک بکه‌"
   page-title:
     home: "سه‌ره‌کی"
   auth:
@@ -15,6 +16,8 @@ ku:
     ask_questions: "گیر بوویت؟ پرسیار بکه‌"
     answer_questions: "یارمه‌تی که‌سێک بده، خاڵ وه‌ربگره, بناسرێ له‌ناو سه‌کۆکه‌‌"
     remember_me: "له‌ ژووره‌وه‌ بمهێله‌ره‌وه‌"
+    forgot_password: "وشه‌ی نهێنیت له‌بیرکردووه‌؟"
+    logout: "چوونه‌ده‌ره‌وه‌"
   user:
     username: "ناوی به‌کارهێنه‌ر"
   activerecord:
@@ -34,6 +37,25 @@ ku:
             password_confirmation:
               confirmation: "وشه‌ نهێنیه‌کان وه‌ک یه‌ک نین"
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه"
+        question:
+          attributes:
+            title:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+            description:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
   errors:
     messages:
       not_saved: ""
+  questions:
+    new:
+      ask_new_question: "پرسیارێکی نوێ بکه‌"
+      aside:
+        here_to_help: "ئه‌م گروپه‌ ئاماده‌یه‌ یارمه‌تیت بدات، له‌ بواری سۆفتوێر"
+        try_to_include: "هه‌وڵبده‌ پرسیاره‌که‌ت به‌ جوانی ڕونبکیته‌وه‌ له‌ ڕێگای"
+        make_it_clear: "هه‌وڵبده پرسیاره‌که‌ت ڕوون بێت"
+        what_you_tried: "باسی ئه‌وه‌ بکه‌ چیت تاقیکردۆته‌وه‌"
+        include_some_code_maybe: "هه‌وڵبده هه‌ندێک کۆد دابنێیت"
+      form:
+        title: "سه‌ردێر(بابه‌ت)"
+        question: "سه‌ردێر(بابه‌ت)"
+        description: "باسێکی پرسیاره‌که‌ت بکه‌"

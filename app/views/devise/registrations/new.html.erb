@@ -39,7 +39,7 @@
         </label>
         <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "w-full" %>
         <% if resource.errors[:email] %>
-          <span class="error"><%= resource.errors[:email][0] %></span>
+          <small class="error"><%= resource.errors[:email][0] %></small>
         <% end %>
       </div>
 
@@ -49,7 +49,7 @@
         </label>
         <%= f.text_field :username, autofocus: false, class: "w-full" %>
         <% if resource.errors[:username] %>
-          <span class="error"><%= resource.errors[:username][0] %></span>
+          <small class="error"><%= resource.errors[:username][0] %></small>
         <% end %>
       </div>
 
@@ -63,7 +63,7 @@
         <%= f.password_field :password, autocomplete: "new-password", class: "w-full" %>
 
         <% if resource.errors[:password] %>
-          <span class="error"><%= resource.errors[:password][0] %></span>
+          <small class="error"><%= resource.errors[:password][0] %></small>
         <% end %>
       </div>
 
@@ -73,7 +73,7 @@
         </label>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full" %>
         <% if resource.errors[:password_confirmation] %>
-          <span class="error"><%= resource.errors[:password_confirmation][0] %></span>
+          <small class="error"><%= resource.errors[:password_confirmation][0] %></small>
         <% end %>
       </div>
 

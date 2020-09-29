@@ -5,7 +5,6 @@
 @import "tailwindcss/utilities";
 
 
-
 .bg-primary {
     background-color: #2A4AA2;
 }
@@ -49,8 +48,8 @@
     color: #B21A49;
 }
 
-input {
-    @apply rounded-md bg-white border-2 text-gray-700 p-1 outline-none w-full;
+input, textarea {
+    @apply rounded-md bg-white border-2 text-gray-700 p-1 my-1 outline-none w-full;
 }
 
 input[type="checkbox"] {
@@ -61,11 +60,11 @@ input[type="checkbox"] {
 }
 
 
-input:focus {
+input:focus, textarea:focus {
     @apply border-primary;
 }
 
-input.accent:focus {
+input.accent:focus, textarea.accent:focus {
     @apply border-accent
 }
 
@@ -74,7 +73,7 @@ button.btn-primary {
 }
 
 button.btn-primary:hover {
-    @apply bg-primary-800;
+    @apply bg-primary-900;
 }
 
 button.btn-primary:focus {
@@ -109,7 +108,12 @@ a.link-primary:hover {
 }
 
 .error {
-    @apply text-red-400 text-xs mt-1;
+    @apply text-red-400 text-xs my-1;
+}
+
+.content {
+    @apply w-full;
+    max-width: 1264px;
 }
 
 /*.color-primary {*/
