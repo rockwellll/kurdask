@@ -103,6 +103,17 @@ a.link-primary:hover {
     text-decoration-color: #2A4AA2;
 }
 
+a.link-accent {
+    @apply text-accent;
+    text-decoration: underline;
+    text-decoration-color: #B21A49;
+}
+
+a.link-accent:hover {
+    @apply text-accent;
+    text-decoration-color: rgba(178, 26, 73, .8);;
+}
+
 .padded-underline {
     text-underline-position: under;
 }

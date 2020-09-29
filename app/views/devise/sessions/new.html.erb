@@ -1,4 +1,7 @@
 <div class="w-full flex justify-center items-center flex-col">
+  <h1 class="text-accent">
+    <%= flash[:notice] %>
+  </h1>
   <div class="w-full md:w-4/12">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {
         class: "flex flex-col w-full bg-white p-4 mt-4 rounded-md border border-gray-400 shadow"

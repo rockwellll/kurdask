@@ -59,3 +59,8 @@ ku:
         title: "سه‌ردێر(بابه‌ت)"
         question: "سه‌ردێر(بابه‌ت)"
         description: "باسێکی پرسیاره‌که‌ت بکه‌"
+        ask: "پرسیاره‌که‌م بکه‌"
+  devise:
+    sessions:
+      user:
+        signed_out: "dsadasd"

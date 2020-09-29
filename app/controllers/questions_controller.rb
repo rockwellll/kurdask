@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate
   # GET /questions
   # GET /questions.json
   def index
@@ -69,5 +70,9 @@ class QuestionsController < ApplicationController
     # Only allow a list of trusted parameters through.
   def question_params
     params.require(:question).permit(:title, :description)
+  end
+
+  def authenticate
+    redirect_to new_user_session_path, notice: 'تکایه‌ داخڵبه‌ بۆ ئه‌وه‌ی پرسیارێک بکه‌یت' unless current_user
   end
 end
