@@ -1,16 +1,4 @@
 <%= form_with(model: question, local: true, class: "w-full") do |form| %>
-  <%# if question.errors.any? %>
-<!--    <div id="error_explanation">-->
-<!--      <h2><%#= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>-->
-
-<!--      <ul>-->
-        <%# question.errors.full_messages.each do |message| %>
-<!--          <li><%#= message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-
   <div class="field">
     <label for="question_title">
       <%= t 'questions.new.form.title' %>
@@ -31,9 +19,11 @@
     <% end %>
   </div>
 
-  <footer>
-    <button type="submit" class="self-center btn-primary mt-2 px-3 py-2">
+  <footer class="flex flex-col md:flex-row justify-between items-center">
+    <button type="submit" class="self-center btn-primary text-sm mt-2 px-3 py-2">
       <%= t 'questions.new.form.ask' %>
     </button>
+
+    <%= link_to 'گه‌ڕانه‌وه‌', root_path, class: 'link-accent padded-underline text-sm my-2' %>
   </footer>
 <% end %>

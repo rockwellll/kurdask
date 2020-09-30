@@ -69,11 +69,11 @@ input.accent:focus, textarea.accent:focus {
 }
 
 button.btn-primary {
-    @apply rounded-md bg-primary border-none text-white;
+    @apply rounded-md bg-accent border-none text-white;
 }
 
 button.btn-primary:hover {
-    @apply bg-primary-900;
+    @apply bg-accent-900;
 }
 
 button.btn-primary:focus {
