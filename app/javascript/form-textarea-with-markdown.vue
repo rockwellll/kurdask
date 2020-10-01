@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col w-full flex-wrap my-2">
-        <label for="question_description" class="mb-2">هه‌وڵبده‌ زۆرترین زانیاری له‌سه‌ر کێشه‌که‌ت بنووسی</label>
+        <label for="question_description" class="mb-4">هه‌وڵبده‌ زۆرترین زانیاری له‌سه‌ر کێشه‌که‌ت بنووسی</label>
 
         <div class="actions flex justify-between">
             <div>
@@ -135,7 +135,11 @@
                 this.$refs.input.focus();
             },
             undoLastInsertion() {
-                this.content = this.content.substring(0, this.content.indexOf(this.lastPush)).trim();
+                this.content = this.content
+                    .substring(0, this.content.indexOf(this.lastPush))
+                    .trim();
+
+                this.lastPush = "";
             }
         }
     }

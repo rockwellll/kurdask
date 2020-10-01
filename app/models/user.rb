@@ -10,6 +10,7 @@ class User < ApplicationRecord
     self.email = email.downcase
   end
 
-  has_many :questions
-  has_many :comments
+  has_many :questions, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :answers, dependent: :destroy
 end
