@@ -1,30 +1,32 @@
 <% content_for :page_description, "some random ass " %>
 
 
-<div id="test" class="w-full flex flex-col md:flex-row-reverse items-start justify-center mt-2 md:mt-10">
+<div id="test" class="w-full flex justify-center items-center  mt-2 md:mt-10">
+  <div class="bg-white rounded-md shadow w-full lg:w-9/12 flex justify-center items-center flex-col md:flex-row p-5">
 
-  <aside class="w-full md:w-3/12 rounded rounded-md shadow border md:mx-5 py-4 bg-white">
-    <header>
-      <h2 class="mr-3"><%= t 'questions.new.aside.try_to_include' %></h2>
-    </header>
-    <ol style="list-style-type: decimal" class="p-10 py-2">
-      <li class="my-2">
-        <%= t '.aside.make_it_clear' %>
-      </li>
-      <li class="my-2">
-        <%= t '.aside.what_you_tried' %>
-      </li>
-      <li class="my-2">
-        <%= t '.aside.include_some_code_maybe' %>
-      </li>
-    </ol>
-  </aside>
+    <aside class="w-full md:w-4/12 rounded rounded-md md:mx-5 py-4 bg-white">
+      <header>
+        <h2 class="mr-3"><%= t 'questions.new.aside.try_to_include' %></h2>
+      </header>
+      <ol style="list-style-type: decimal" class="p-10 py-2">
+        <li class="my-2">
+          <%= t '.aside.make_it_clear' %>
+        </li>
+        <li class="my-2">
+          <%= t '.aside.what_you_tried' %>
+        </li>
+        <li class="my-2">
+          <%= t '.aside.include_some_code_maybe' %>
+        </li>
+      </ol>
+    </aside>
 
-  <div class="w-full flex flex-col justify-center md:w-5/12">
-    <header class="md:text-3xl mb-3">
-      <h1 class="text-right"><%= t 'questions.new.ask_new_question' %></h1>
-    </header>
+    <div class="w-full flex flex-col justify-center md:w-7/12">
+      <header class="md:text-3xl mb-3">
+        <h1 class="text-right"><%= t 'questions.new.ask_new_question' %></h1>
+      </header>
 
-    <%= render 'form', question: @question %>
+      <%= render 'form', question: @question %>
+    </div>
   </div>
 </div>
