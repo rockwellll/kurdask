@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 2020_10_01_163655) do
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
-    t.string "description"
+    t.text "description"
+    t.integer "views", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_questions_on_title"

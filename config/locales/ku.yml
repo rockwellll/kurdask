@@ -60,6 +60,10 @@ ku:
         question: "سه‌ردێر(بابه‌ت)"
         description: "باسێکی پرسیاره‌که‌ت بکه‌"
         ask: "پرسیاره‌که‌م بکه‌"
+    index:
+      asked_by: "پرسیارکه‌ر:"
+      views: "بینین"
+      answers: "وه‌ڵام"
   devise:
     sessions:
       user:

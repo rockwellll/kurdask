@@ -88,7 +88,7 @@
 
       </textarea>
         <div>
-            <vue-simple-markdown class="max-w-full" :source="content"></vue-simple-markdown>
+            <vue-simple-markdown class="max-w-full" :heading="true" :source="content"></vue-simple-markdown>
         </div>
     </div>
 </template>
@@ -118,10 +118,10 @@
                 this.insert('\n```\nکۆده‌که‌ت لێره‌ دابنێ\n```')
             },
             insertBold() {
-                this.insert('__لێره‌ نوسین بکه‌__');
+                this.insert('__لێره‌ نوسین بکه ‌__');
             },
             insertItalic() {
-                this.insert('*لێره‌ نوسین بکه‌*');
+                this.insert('*لێره‌ نوسین بکه ‌*');
             },
             insertLink() {
                 this.insert('[لێره‌ نوسین بکه‌](لینک)');
@@ -130,16 +130,17 @@
                 this.insert('``\n``\n');
             },
             insert(content) {
-                this.content = `${this.content} ${content}`;
+                const partBeforeCursor = this.content.substring(0, this.$refs.input.selectionStart);
+                const partAfterCursor = this.content.substring(this.$refs.input.selectionStart + 1);
+
+                this.content = `${partBeforeCursor} ${content} ${partAfterCursor}`;
                 this.lastPush = content;
                 this.$refs.input.focus();
             },
             undoLastInsertion() {
                 this.content = this.content
-                    .substring(0, this.content.indexOf(this.lastPush))
+                    .substring(0, this.content.lastIndexOf(this.lastPush))
                     .trim();
-
-                this.lastPush = "";
             }
         }
     }

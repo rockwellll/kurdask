@@ -127,6 +127,11 @@ a.link-accent:hover {
     max-width: 1264px;
 }
 
+pre {
+    direction: ltr;
+    @apply text-sm
+}
+
 /*.color-primary {*/
 /*    color: #8382f5;*/
 /*}*/

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :questions
+  resources :questions, param: :title
   devise_for :users
 
   root "questions#index"

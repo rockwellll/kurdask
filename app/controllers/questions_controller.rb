@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate
+  before_action :authenticate, only: [:new, :update, :destroy]
   # GET /questions
   # GET /questions.json
   def index
@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @question.update views: @question.views + 1
   end
 
   # GET /questions/new
@@ -28,7 +29,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to question_path(@question), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -64,7 +65,7 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_question
-    @question = Question.find(params[:id])
+    @question = Question.find_by_title params[:title]
   end
 
     # Only allow a list of trusted parameters through.

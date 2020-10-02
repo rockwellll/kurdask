@@ -47,3 +47,6 @@ en:
     answer_questions: "Answer others, get known in the community and receive points"
   user:
     username: "Username"
+  questions:
+    index:
+      asked_by: "asked by"
