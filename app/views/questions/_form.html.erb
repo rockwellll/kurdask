@@ -10,9 +10,11 @@
   </div>
 
   <div>
-    <textarea-with-markdown :old-value="<%= question.description.to_json %>">
+<!--    <textarea-with-markdown :old-value="<%#= question.description.to_json %>">-->
 
-    </textarea-with-markdown>
+<!--    </textarea-with-markdown>-->
+
+    <%= render 'test', oldValue: question.description %>
 
     <% if question.errors[:description] %>
       <small class="error"><%= question.errors[:description][0] %></small>

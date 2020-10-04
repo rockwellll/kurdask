@@ -94,6 +94,9 @@
 </template>
 
 <script>
+    import marked from "marked"
+    import hljs from "highlight.js"
+
     export default {
         name: "form-textarea-with-markdown",
         props: ['label', 'oldValue'],
