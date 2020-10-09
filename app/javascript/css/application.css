@@ -4,6 +4,7 @@
 
 @import "tailwindcss/utilities";
 
+@import "rouge.scss";
 
 .bg-primary {
     background-color: #2A4AA2;

@@ -1,6 +1,5 @@
-<div class="flex flex-col w-full flex-wrap my-2" data-controller=markdown data-markdown-old="<%= oldValue %>">
-  <label for="question_description" class="mb-4">هه‌وڵبده‌ زۆرترین زانیاری له‌سه‌ر کێشه‌که‌ت بنووسی</label>
-
+<div class="flex flex-col w-full flex-wrap my-2" data-controller=markdown data-markdown-old="<%= @old_value %>">
+  <label for="<%= @input_id %>" class="mb-4">هه‌وڵبده‌ زۆرترین زانیاری له‌سه‌ر کێشه‌که‌ت بنووسی</label>
   <div class="actions flex justify-between">
     <div>
       <button type="button"
@@ -86,11 +85,8 @@
     <small class="text-primary">پشتگیری markdown ده‌کات</small>
   </div>
 
+  <%= content %>
 
-  <textarea data-target="markdown.input"
-            data-action="input->markdown#convertToMarkdown" ref="input" id="question_description" name="question[description]"  class="resize-y"
-            rows="10">
-      </textarea>
   <div>
     <div class="w-full" data-target="markdown.viewer"></div>
   </div>
