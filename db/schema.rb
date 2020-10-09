@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_163655) do
+ActiveRecord::Schema.define(version: 2020_10_09_143202) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -58,9 +58,19 @@ ActiveRecord::Schema.define(version: 2020_10_01_163655) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "views", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "viewer_id"
+    t.index ["question_id", "viewer_id"], name: "index_views_on_question_id_and_viewer_id", unique: true
+    t.index ["question_id"], name: "index_views_on_question_id"
+    t.index ["viewer_id"], name: "index_views_on_viewer_id"
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "questions"
   add_foreign_key "comments", "users"
   add_foreign_key "questions", "users"
+  add_foreign_key "views", "questions"
+  add_foreign_key "views", "users", column: "viewer_id"
 end

@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :answers
+  has_many :views
 
   validates :description, presence: true
   validates :title, presence: true
@@ -20,5 +21,9 @@ class Question < ApplicationRecord
 
   def count_answers
     answers.count
+  end
+
+  def owner?(user)
+    user_id == user.id
   end
 end

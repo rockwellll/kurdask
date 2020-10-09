@@ -13,4 +13,12 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :views, foreign_key: 'viewer_id'
+
+
+  def view(question)
+    v = View.new(viewer_id: id)
+    v.update_attribute :question_id, question.id
+  rescue ActiveRecord::RecordNotUnique
+  end
 end

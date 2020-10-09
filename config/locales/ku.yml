@@ -23,6 +23,8 @@ ku:
     username: "ناوی به‌کارهێنه‌ر"
   activerecord:
     errors:
+      messages:
+        record_invalid: "dasda"
       models:
         user:
           attributes:
@@ -72,6 +74,7 @@ ku:
     show:
       answer_question: "وه‌ڵام بده‌وه‌"
       answered_by: "له‌لایان"
+      answer_your_question: 'وه‌ڵامی خۆت بده‌وه‌'
   devise:
     sessions:
       user:

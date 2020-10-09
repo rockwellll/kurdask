@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  include AuthenticationHelper
+
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, only: [:new, :update, :destroy]
   # GET /questions
@@ -10,7 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @question.update views: @question.views + 1
+    current_user.view @question if current_user
     @answer = Answer.new
   end
 
@@ -83,10 +85,6 @@ class QuestionsController < ApplicationController
     # Only allow a list of trusted parameters through.
   def question_params
     params.require(:question).permit(:title, :description)
-  end
-
-  def authenticate
-    redirect_to new_user_session_path, notice: 'تکایه‌ داخڵبه‌ بۆ ئه‌وه‌ی پرسیارێک بکه‌یت' unless current_user
   end
 
   def answer_params
