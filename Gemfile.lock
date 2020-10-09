@@ -183,6 +183,8 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
+    view_component (2.19.1)
+      activesupport (>= 5.0.0, < 7.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.4)
@@ -223,6 +225,7 @@ DEPENDENCIES
   selenium-webdriver
   turbolinks (~> 5)
   tzinfo-data
+  view_component
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

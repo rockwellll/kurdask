@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "highlightjs": "^9.16.2",
     "markdown-it-vue": "^1.1.3",

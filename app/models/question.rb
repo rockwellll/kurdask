@@ -17,4 +17,8 @@ class Question < ApplicationRecord
   def formatted_title
     title.split("-").join(" ");
   end
+
+  def count_answers
+    answers.count
+  end
 end

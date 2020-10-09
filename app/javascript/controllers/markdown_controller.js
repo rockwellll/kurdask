@@ -5,40 +5,6 @@ import hljs from "highlight.js"
 export default class extends Controller {
     static targets = ["viewer", "input", "test"]
 
-    initialize() {
-        this.viewerTarget.innerHTML = marked(this.data.get('old') || "", {sanitize: true},);
-        document.addEventListener('keypress', (e) => {
-            if (e.ctrlKey && e.code === 'KeyZ') {
-                this.undoLastInsertion();
-            }
-        });
-    }
-
-    convertToMarkdown(event) {
-        this.viewerTarget.innerHTML = marked(event.target.value, {sanitize: true})
-    }
-
-    insertCode() {
-        this.insert('\n```\nکۆده‌که‌ت لێره‌ دابنێ\n```')
-    }
-
-    insertBold() {
-        console.log("shoud add bold")
-        this.insert('__لێره‌ نوسین بکه ‌__');
-    }
-
-    insertItalic() {
-        this.insert('*لێره‌ نوسین بکه ‌*');
-    }
-
-    insertLink() {
-        this.insert('[لێره‌ نوسین بکه‌](لینک)');
-    }
-
-    insertNewLine() {
-        this.insert('``\n``\n');
-    }
-
     insert(content) {
         const inputContent = this.inputTarget.value;
 
@@ -62,5 +28,40 @@ export default class extends Controller {
         this.inputTarget.value = value
             .substring(0, value.lastIndexOf(this.lastPush))
             .trim();
+    }
+
+
+    initialize() {
+        this.viewerTarget.innerHTML = marked(this.data.get('old').trim() || "", {sanitize: true},);
+        this.inputTarget.value = this.data.get('old')
+        document.addEventListener('keypress', (e) => {
+            if (e.ctrlKey && e.code === 'KeyZ') {
+                this.undoLastInsertion();
+            }
+        });
+    }
+
+    convertToMarkdown(event) {
+        this.viewerTarget.innerHTML = marked(event.target.value, {sanitize: true})
+    }
+
+    insertCode() {
+        this.insert('\n```\nکۆده‌که‌ت لێره‌ دابنێ\n```')
+    }
+
+    insertBold() {
+        this.insert('__لێره‌ نوسین بکه ‌__');
+    }
+
+    insertItalic() {
+        this.insert('*لێره‌ نوسین بکه ‌*');
+    }
+
+    insertLink() {
+        this.insert('[لێره‌ نوسین بکه‌](لینک)');
+    }
+
+    insertNewLine() {
+        this.insert('``\n``\n');
     }
 }

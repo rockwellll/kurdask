@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question.update views: @question.views + 1
+    @answer = Answer.new
   end
 
   # GET /questions/new
@@ -35,6 +36,17 @@ class QuestionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def answer
+    @answer = Answer.new answer_params
+
+    if @answer.save
+      redirect_to question_path(@answer.question)
+    else
+      flash.alert = "something wrong happened"
+      redirect_back fallback_location: question_path(@answer.question)
     end
   end
 
@@ -75,5 +87,9 @@ class QuestionsController < ApplicationController
 
   def authenticate
     redirect_to new_user_session_path, notice: 'تکایه‌ داخڵبه‌ بۆ ئه‌وه‌ی پرسیارێک بکه‌یت' unless current_user
+  end
+
+  def answer_params
+    params.require(:answer).permit(:body, :user_id, :question_id)
   end
 end

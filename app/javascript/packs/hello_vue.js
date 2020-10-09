@@ -51,6 +51,7 @@
 import TurbolinksAdapter from 'vue-turbolinks'
 import Markdown from "vue-simple-markdown";
 import Vue from 'vue/dist/vue.esm'
+import axios from 'axios';
 
 import Test from '../form-textarea-with-markdown';
 
@@ -59,6 +60,8 @@ Vue.use(Markdown);
 Vue.component('textarea-with-markdown',Test);
 
 document.addEventListener('turbolinks:load', () => {
+  axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
   const app = new Vue({
     el: '#app',
   })

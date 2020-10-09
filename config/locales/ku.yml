@@ -1,4 +1,5 @@
 ku:
+  empty: "ئه‌م بۆشاییه‌ پڕکه‌وه"
   hello: "Hello world in kurdish"
   nav:
     login: "چوونه‌ژووره‌وه‌"
@@ -43,6 +44,10 @@ ku:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
             description:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
+        answer:
+          attributes:
+            body:
+              blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
   errors:
     messages:
       not_saved: ""
@@ -64,6 +69,9 @@ ku:
       asked_by: "پرسیارکه‌ر:"
       views: "بینین"
       answers: "وه‌ڵام"
+    show:
+      answer_question: "وه‌ڵام بده‌وه‌"
+      answered_by: "له‌لایان"
   devise:
     sessions:
       user:

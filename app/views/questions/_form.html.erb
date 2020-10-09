@@ -4,20 +4,25 @@
       <%= t 'questions.new.form.title' %>
     </label>
     <%= form.text_field :title %>
-    <% if question.errors[:title]%>
+    <% if question.errors[:title] %>
       <small class="error"><%= question.errors[:title][0] %></small>
-    <%end %>
+    <% end %>
   </div>
 
   <div>
-<!--    <textarea-with-markdown :old-value="<%#= question.description.to_json %>">-->
+    <%= render(MarkdownControlsComponent.new("question_description", question.description)) do %>
 
-<!--    </textarea-with-markdown>-->
+      <textarea data-target="markdown.input"
+                data-action="input->markdown#convertToMarkdown"
+                ref="input"
+                id="answer_body"
+                name="question[description]"
+                class="resize-y <%= question.errors[:description][0] ? "border-red-300" : "" %>"
+                rows="10"></textarea>
 
-    <%= render 'test', oldValue: question.description %>
-
-    <% if question.errors[:description] %>
-      <small class="error"><%= question.errors[:description][0] %></small>
+      <% if question.errors[:description] %>
+        <small class="error"><%= question.errors[:description][0] %></small>
+      <% end %>
     <% end %>
   </div>
 

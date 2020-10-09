@@ -1,14 +1,65 @@
-<p id="notice"><%= notice %></p>
+<div id="test" class="w-full flex justify-center items-center  mt-2 md:mt-10">
+  <div class="bg-white rounded-md shadow w-full lg:w-9/12 flex justify-center items-center flex-col md:flex-row p-5">
+    <article>
+      <header class="text-2xl mb-1 md:mb-2">
+        <h1><%= @question.formatted_title %></h1>
+      </header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
+      <hr class="bg-gray-300 mb-1 md:mb-4" />
+      <main class="md:px-2">
+        <%= markdown @question.description %>
+      </main>
+      <hr class="bg-gray-300 mb-1 md:mb-4" />
+      <footer class="md:px-5">
+           <header class="my-2">
+             <h1 class="text-xl"><%= @question.count_answers.to_s.concat(t('questions.index.answers')) %></h1>
+           </header>
 
-<p>
-  <strong>Description:</strong>
-  <%= @question.description %>
-</p>
+          <section>
+            <% @question.answers.each do |answer| %>
+              <div class="flex flex-col justify-center items-end">
+                <main class="w-full rounded border border-gray-200 my-2 p-3">
+                  <%= markdown answer.body %>
+                </main>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+                <small class="self-start mb-2">
+                  <%= t '.answered_by' %>
+                  <a href="" class="link-primary">
+                    <%= answer.user.username %>
+                    <%#= answer.created_at.to_formatted_s :short %>
+                  </a>
+                </small>
+              </div>
+            <% end %>
+          </section>
+
+          <h2><%= t '.answer_question' %></h2>
+
+          <main class="w-full">
+            <%= form_with(model: @answer, url: answer_question_path) do |form|%>
+              <%= hidden_field_tag :user_id, current_user.id, name: 'answer[user_id]' %>
+              <%= hidden_field_tag :question_id, @question.id, name: "answer[question_id]" %>
+
+
+              <%= render(MarkdownControlsComponent.new("answer_body", @answer.body)) do  %>
+                    <textarea data-target="markdown.input"
+                              data-action="input->markdown#convertToMarkdown"
+                              ref="input"
+                              id="answer_body"
+                              name="answer[body]"
+                              class="resize-y <%= flash[:alert] ? "border-red-300" : "" %>"
+                              rows="10"></textarea>
+                    <% if flash[:alert] %>
+                        <small class="error"><%= t 'empty' %></small>
+                    <% end %>
+              <% end %>
+
+              <button type="submit" class="btn-primary-alt p-2 text-sm focus:outline-none focus:shadow-outline">
+                <%= t '.answer_question' %>
+              </button>
+            <% end %>
+          </main>
+      </footer>
+    </article>
+  </div>
+</div>

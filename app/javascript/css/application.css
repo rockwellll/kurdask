@@ -4,9 +4,8 @@
 
 @import "tailwindcss/utilities";
 
-@import "rouge.scss";
 
-.bg-primary {
+    .bg-primary {
     background-color: #2A4AA2;
 }
 
@@ -71,6 +70,14 @@ input.accent:focus, textarea.accent:focus {
 
 button.btn-primary {
     @apply rounded-md bg-accent border-none text-white;
+}
+
+button.btn-primary-alt {
+    @apply rounded-md bg-primary border-none text-white;
+}
+
+button.btn-primary-alt:hover {
+    @apply rounded-md bg-primary-900 border-none text-white;
 }
 
 button.btn-primary:hover {
@@ -197,3 +204,69 @@ pre {
 
 /*.link:hover {*/
 /*    color: #736EFF;*/
+
+
+.highlight .c1 {
+    color: #9594af !important;
+    font-style: italic;
+}
+.ch {
+    height: 30px;
+    background-color: #e1e5e7;
+    max-width: 97%;
+    border-radius: 8px 8px 0 0;
+}
+.ch__comps {
+    display: inline-block;
+    padding-left: 10px;
+}
+.ch__comps span {
+    font-size: 1.7rem;
+    margin: 7px 0 0 5px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.btnc {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #f5f5f5;
+    padding: 0 0 0 2px;
+    margin: 6px 2px 0 0;
+    cursor: default;
+}
+.btnc--green {
+    background-color: #6ba83d;
+}
+.btnc--green:hover {
+    background-color: #6ba83d;
+}
+.btnc--yellow {
+    background-color: #e4b66a;
+}
+.btnc--yellow:hover {
+    background-color: #e4b66a;
+}
+.btnc--red {
+    background-color: #c95643;
+}
+.btnc--red:hover {
+    background-color: #c95643;
+}
+.highlight {
+    border-radius: 3px;
+    max-width: 98%;
+    box-sizing: content-box;
+    display: block;
+    margin: 0 0 3rem;
+}
+code, .code, pre {
+    word-break: normal;
+    white-space: pre !important;
+    word-wrap: normal;
+    padding: 14px 23px 14px 13px !important;
+}
+code code, .code code, pre code {
+    line-height: 1.5;
+    white-space: pre-wrap;
+    margin-left: -12px;
+}
