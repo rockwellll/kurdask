@@ -1,47 +1,95 @@
 <div id="test" class="w-full flex justify-center items-center  mt-2 md:mt-10">
   <div class="bg-white rounded-md shadow w-full lg:w-9/12 flex justify-center items-center flex-col md:flex-row p-5">
     <article class="w-full">
-      <header class="text-2xl mb-1 md:mb-2">
-        <h1><%= @question.formatted_title %></h1>
+      <header class="text-2xl mb-1 md:mb-2 flex items-center">
+        <h1 class="rotate-45"><%= @question.formatted_title %></h1>
       </header>
 
-      <hr class="bg-gray-300 mb-1 md:mb-4" />
-      <main class="md:px-2">
-        <%= markdown @question.description %>
-      </main>
-      <hr class="bg-gray-300 mb-1 md:mb-4" />
-      <footer class="md:px-5">
-           <header class="my-2">
-             <h1 class="text-xl"><%= @question.count_answers.to_s.concat(t('questions.index.answers')) %></h1>
-           </header>
+      <hr class="bg-gray-300 mb-1 md:mb-4"/>
+      <main class="md:px-2 flex">
+        <aside
+          data-controller=vote
+          class="flex flex-col items-center">
+          <button data-action="vote#upvote" role="link">
+            <svg aria-hidden="true" class="text-black" width="36" height="36" viewBox="0 0 36 36">
+              <path d="M2 26h32L18 10 2 26z"></path>
+            </svg>
+          </button>
 
-          <section>
-            <% @question.answers.each do |answer| %>
-              <div class="flex flex-col justify-center items-end">
-                <main class="w-full rounded border border-gray-200 my-2 p-3">
+          <h1
+            data-target="vote.count"
+            class="text-xl">
+            0
+          </h1>
+
+          <button data-action="vote#downvote">
+            <svg aria-hidden="true" class="text-black transform rotate-180" width="36" height="36" viewBox="0 0 36 36">
+              <path d="M2 26h32L18 10 2 26z"></path>
+            </svg>
+          </button>
+        </aside>
+        <main class="mx-2 my-2">
+          <%= markdown @question.description %>
+        </main>
+      </main>
+      <hr class="bg-gray-300 mb-1 md:mb-4"/>
+      <footer class="md:px-5">
+        <header class="my-2">
+          <h1 class="text-xl"><%= @question.count_answers.to_s.concat(t('questions.index.answers')) %></h1>
+        </header>
+
+        <section>
+          <% @question.answers.each do |answer| %>
+            <div class="flex flex-col justify-center items-end">
+              <main class="w-full rounded border border-gray-200 my-2 p-3 flex items-center">
+                <aside
+                  data-controller=vote
+                  class="flex flex-col items-center">
+                  <button data-action="vote#upvote" role="link">
+                    <svg aria-hidden="true" class="text-black" width="36" height="36" viewBox="0 0 36 36">
+                      <path d="M2 26h32L18 10 2 26z"></path>
+                    </svg>
+                  </button>
+
+                  <h1
+                    data-target="vote.count"
+                    class="text-xl">
+                    0
+                  </h1>
+
+                  <button data-action="vote#downvote">
+                    <svg aria-hidden="true" class="text-black transform rotate-180" width="36" height="36" viewBox="0 0 36 36">
+                      <path d="M2 26h32L18 10 2 26z"></path>
+                    </svg>
+                  </button>
+                </aside>
+
+                <main>
                   <%= markdown answer.body %>
                 </main>
+              </main>
 
-                <small class="self-start mb-2">
-                  <%= t '.answered_by' %>
-                  <a href="" class="link-primary">
-                    <%= answer.user.username %>
-                    <%#= answer.created_at.to_formatted_s :short %>
-                  </a>
-                </small>
-              </div>
-            <% end %>
-          </section>
+              <small class="self-start mb-2">
+                <%= t '.answered_by' %>
+                <a href="<%= user_show_path answer.user.username %>" class="link-primary">
+                  <%= answer.user.username %>
+                  <%#= answer.created_at.to_formatted_s :short %>
+                </a>
+              </small>
+            </div>
+          <% end %>
+        </section>
 
-          <h2><%= t '.answer_question' %></h2>
+        <h2><%= t '.answer_question' %></h2>
 
-          <main class="w-full">
-            <%= form_with(model: @answer, url: answer_question_path) do |form|%>
+        <main class="w-full">
+          <% if current_user %>
+            <%= form_with(model: @answer, url: answer_question_path) do |form| %>
               <%= hidden_field_tag :user_id, current_user.id, name: 'answer[user_id]' %>
               <%= hidden_field_tag :question_id, @question.id, name: "answer[question_id]" %>
 
 
-              <%= render(MarkdownControlsComponent.new("answer_body", @answer.body)) do  %>
+              <%= render(MarkdownControlsComponent.new("answer_body", @answer.body)) do %>
                     <textarea data-target="markdown.input"
                               data-action="input->markdown#convertToMarkdown"
                               ref="input"
@@ -49,16 +97,17 @@
                               name="answer[body]"
                               class="resize-y <%= flash[:alert] ? "border-red-300" : "" %>"
                               rows="10"></textarea>
-                    <% if flash[:alert] %>
-                        <small class="error"><%= t 'empty' %></small>
-                    <% end %>
+                <% if flash[:alert] %>
+                  <small class="error"><%= t 'empty' %></small>
+                <% end %>
               <% end %>
 
               <button type="submit" class="btn-primary-alt p-2 text-sm focus:outline-none focus:shadow-outline">
                 <%= @question.owner?(current_user) ? t('.answer_your_question') : t('.answer_question') %>
               </button>
             <% end %>
-          </main>
+          <% end %>
+        </main>
       </footer>
     </article>
   </div>
