@@ -6,7 +6,7 @@
       </header>
 
       <hr class="bg-gray-300 mb-1 md:mb-4"/>
-      <main class="md:px-2 flex">
+      <main class="md:px-2 flex w-full">
         <aside
           data-controller=vote
           class="flex flex-col items-center">
@@ -19,7 +19,7 @@
           <h1
             data-target="vote.count"
             class="text-xl">
-            0
+            <%= @question.total_votes %>
           </h1>
 
           <button data-action="vote#downvote">
@@ -28,7 +28,7 @@
             </svg>
           </button>
         </aside>
-        <main class="mx-2 my-2">
+        <main class="mx-2 my-2 w-full">
           <%= markdown @question.description %>
         </main>
       </main>
@@ -54,7 +54,7 @@
                   <h1
                     data-target="vote.count"
                     class="text-xl">
-                    0
+                    <%= answer.total_votes %>
                   </h1>
 
                   <button data-action="vote#downvote">
