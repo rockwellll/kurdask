@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :views, foreign_key: 'viewer_id'
+  has_many :votes, foreign_key: 'voter_id'
 
 
   def view(question)
