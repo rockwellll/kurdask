@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_143202) do
+ActiveRecord::Schema.define(version: 2020_10_12_151315) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2020_10_09_143202) do
     t.index ["viewer_id"], name: "index_views_on_viewer_id"
   end
 
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.boolean "vote_status", null: false
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.bigint "voter_id", null: false
+    t.index ["votable_id", "votable_type", "voter_id"], name: "index_votes_on_votable_id_and_votable_type_and_voter_id", unique: true
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id"], name: "index_votes_on_voter_id"
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "questions"
@@ -73,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_10_09_143202) do
   add_foreign_key "questions", "users"
   add_foreign_key "views", "questions"
   add_foreign_key "views", "users", column: "viewer_id"
+  add_foreign_key "votes", "users", column: "voter_id"
 end
