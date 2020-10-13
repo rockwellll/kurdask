@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   post '/question/answer', to: 'questions#answer', as: 'answer_question'
+  post '/upvote', to: 'up_vote#store', as: 'upvote'
+  post '/downvote', to: 'downvote#store', as: 'downvote'
   get '/users/:username', to: 'users#show', as: 'user_show'
 
   root "questions#index"

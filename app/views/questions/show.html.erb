@@ -1,4 +1,15 @@
-<div id="test" class="w-full flex justify-center items-center  mt-2 md:mt-10">
+<div id="test" class="w-full relative flex flex-col justify-center items-center  mt-2 md:mt-10">
+  <div id="banner" class="banner w-8/12 bg-red-400 absolute p-5 text-white top-0">
+    <button class="focus:outline-none" onclick="document.getElementById('banner').classList.remove('flash')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <h1 id="banner-content" class="mx-4">
+
+    </h1>
+  </div>
   <div class="bg-white rounded-md shadow w-full lg:w-9/12 flex justify-center items-center flex-col md:flex-row p-5">
     <article class="w-full">
       <header class="text-2xl mb-1 md:mb-2 flex items-center">
@@ -9,10 +20,16 @@
       <main class="md:px-2 flex w-full">
         <aside
           data-controller=vote
+          data-vote-entity="<%= @question.id %>"
+          data-vote-type="<%= @question.class.to_s %>"
           class="flex flex-col items-center">
-          <button data-action="vote#upvote" role="link">
-            <svg aria-hidden="true" class="text-black" width="36" height="36" viewBox="0 0 36 36">
-              <path d="M2 26h32L18 10 2 26z"></path>
+
+          <%#= @question.votes.find_by_voter_id(current_user.id).vote_status ? 'text-accent' : '' if current_user %>
+          <%#= @question.votes.find_by_voter_id(current_user.id).vote_status ? '' : 'text-accent' if current_user %>
+          <button data-action="vote#upvote"
+                  class="focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
             </svg>
           </button>
 
@@ -22,9 +39,11 @@
             <%= @question.total_votes %>
           </h1>
 
-          <button data-action="vote#downvote">
-            <svg aria-hidden="true" class="text-black transform rotate-180" width="36" height="36" viewBox="0 0 36 36">
-              <path d="M2 26h32L18 10 2 26z"></path>
+          <button
+            class="focus:outline-none "
+            data-action="vote#downvote">
+            <svg class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
             </svg>
           </button>
         </aside>
@@ -43,10 +62,12 @@
             <div class="flex flex-col justify-center items-end">
               <main class="w-full rounded border border-gray-200 my-2 p-3 flex items-center">
                 <aside
+                  data-vote-entity="<%= answer.id %>"
+                  data-vote-type="<%= answer.class.to_s %>"
                   data-controller=vote
                   class="flex flex-col items-center">
-                  <button data-action="vote#upvote" role="link">
-                    <svg aria-hidden="true" class="text-black" width="36" height="36" viewBox="0 0 36 36">
+                  <button data-action="vote#upvote" role="link" class="text-black hover:text-gray-600 focus:outline-none">
+                    <svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36">
                       <path d="M2 26h32L18 10 2 26z"></path>
                     </svg>
                   </button>
