@@ -13,23 +13,18 @@ module Votable
 
   def upvote(voter_id:)
     return votes.create voter_id: voter_id, vote_status: true if vote(voter_id)
-
-    Vote.find_by_voter_id voter_id
   end
 
   def downvote(voter_id:)
     votes.create voter_id: voter_id, vote_status: false if vote(voter_id)
-    Vote.find_by_voter_id voter_id
   end
-
+  
   private
   def vote(voter_id)
-    vote = Vote.find_by_voter_id voter_id
+    vote = votes.where(voter_id: voter_id)
+    return true if votes.empty?
 
-    unless vote.nil?
-      Vote.delete vote.id
-      return false
-    end
-    true
+    Vote.delete vote[0].id
+    false
   end
 end
