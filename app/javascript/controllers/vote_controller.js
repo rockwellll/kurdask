@@ -2,7 +2,7 @@ import {Controller} from 'stimulus';
 import axios from 'axios';
 
 export default class extends Controller {
-    static targets = ['count'];
+    static targets = ['count', 'up', 'down'];
 
     async upvote() {
         const res = await axios.post('/upvote', {
@@ -14,19 +14,7 @@ export default class extends Controller {
             }
         });
 
-        console.log(res);
-        // if (res.data.success && res.data.toggle) {
-        //     this.countTarget.innerHTML = res.data.count;
-        // }
-
-        // if (res.data.success && !res.data.toggle) {
-        //     document.getElementById('banner-content').innerText= res.data.message;
-        //     document.getElementById('banner').classList.add('flash');
-        // }
-
-        if (res.data.success) {
-            this.countTarget.innerHTML = res.data.count;
-        }
+        this.respondToRequest(res, this.upTarget);
     }
 
     async downvote() {
@@ -37,24 +25,34 @@ export default class extends Controller {
             headers: {
                 "X-CSRF-Token": this.csrf()
             }
-        })
+        });
 
-        if (res.data.success) {
-            this.countTarget.innerHTML = res.data.count;
-        }
-
-        // if (res.data.success && res.data.toggle) {
-        //     this.countTarget.innerHTML = res.data.count;
-        // }
-        //
-        // if (!res.data.success) {
-        //     document.getElementById('banner-content').innerText= res.data.message;
-        //     document.getElementById('banner').classList.add('flash');
-        // }
+        this.respondToRequest(res, this.downTarget);
     }
 
     csrf() {
         const element = document.head.querySelector(`meta[name="csrf-token"]`)
         return element.getAttribute("content")
+    }
+
+    respondToRequest(response, target) {
+        if(!response.data.success) {
+            document.getElementById('banner-content').innerText= response.data.message;
+            document.getElementById('banner').classList.add('flash');
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        if (response.data.success) {
+            this.countTarget.innerHTML = response.data.count;
+        }
+
+        if (response.data.success && response.data.toggle) {
+            target.classList.add('text-accent');
+        }
+
+        if (response.data.success && !response.data.toggle) {
+            target.classList.remove('text-accent');
+        }
     }
 }
