@@ -51,6 +51,8 @@ ku:
             body:
               blank: "ئه‌م بۆشاییه‌ پڕکه‌وه‌"
   errors:
+    banner:
+      you_cant_vote_for_yourself: 'تۆ ناتوانی ده‌نگ بده‌ی به‌ پۆستی خۆت'
     messages:
       not_saved: ""
   questions:

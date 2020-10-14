@@ -1,0 +1,29 @@
+<aside
+  data-controller=vote
+  data-vote-entity="<%= entity.id %>"
+  data-vote-type="<%= entity.class.to_s %>"
+  class="flex flex-col items-center">
+  <button data-action="vote#upvote"
+          data-target="vote.up"
+          class="focus:outline-none
+                <%= entity.votes.find_by_voter_id(current_user.id).vote_status ? 'text-accent' : '' if current_user && !entity.votes.find_by_voter_id(current_user.id).nil? %>">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <h1
+    data-target="vote.count"
+    class="text-xl">
+    <%= entity.total_votes %>
+  </h1>
+
+  <button
+    class="focus:outline-none <%=  entity.votes.find_by_voter_id(current_user.id).vote_status ? '' : 'text-accent' if current_user && !entity.votes.find_by_voter_id(current_user.id).nil? %> %>"
+    data-action="vote#downvote"
+    data-target="vote.down">
+    <svg class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+</aside>
