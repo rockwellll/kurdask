@@ -1,0 +1,24 @@
+<% if current_user %>
+  <%= form_with(model: @answer, url: answer_question_path) do |form| %>
+    <%= hidden_field_tag :user_id, current_user.id, name: 'answer[user_id]' %>
+    <%= hidden_field_tag :question_id, @question.id, name: "answer[question_id]" %>
+
+
+    <%= render(MarkdownControlsComponent.new("answer_body", @answer.body)) do %>
+      <textarea data-target="markdown.input"
+                data-action="input->markdown#convertToMarkdown"
+                ref="input"
+                id="answer_body"
+                name="answer[body]"
+                class="resize-y <%= flash[:alert] ? "border-red-300" : "" %>"
+                rows="10"></textarea>
+      <% if flash[:alert] %>
+        <small class="error"><%= t 'empty' %></small>
+      <% end %>
+    <% end %>
+
+    <button type="submit" class="btn-primary-alt p-2 text-sm focus:outline-none focus:shadow-outline">
+      <%= @question.owner?(current_user) ? t('.answer_your_question') : t('.answer_question') %>
+    </button>
+  <% end %>
+<% end %>
