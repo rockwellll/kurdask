@@ -3,6 +3,7 @@ class DownvoteController < ApplicationController
 
   before_action :authenticate
   before_action :set_entity
+  before_action :is_owner?
 
   def store
     result = @target.downvote(voter_id: current_user.id)
@@ -25,5 +26,16 @@ class DownvoteController < ApplicationController
   private
   def set_entity
     @target = params[:entityType].constantize.find params[:entityId]
+  end
+
+  def is_owner?
+    if @target.user.id == current_user.id
+      render json: {
+          success: false,
+          message: t('errors.banner.you_cant_vote_for_yourself')
+      }
+      return
+    end
+
   end
 end
