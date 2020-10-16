@@ -1,6 +1,10 @@
 ku:
   empty: "ئه‌م بۆشاییه‌ پڕکه‌وه"
   hello: "Hello world in kurdish"
+  action:
+    edit: 'گۆڕانکاری'
+    delete: 'ڕه‌شکردنه‌وه‌'
+    share: 'شه‌یرکردن'
   nav:
     login: "چوونه‌ژووره‌وه‌"
     signup: "هه‌ژمارێک دروست بکه‌"

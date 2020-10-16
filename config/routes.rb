@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :questions, param: :title
+  resources :answers
   resource :users
   devise_for :users
 
