@@ -1,7 +1,7 @@
 class DownvoteController < ApplicationController
   include AuthenticationHelper
 
-  before_action :authenticate
+  before_action :authenticate_json
   before_action :set_entity
   before_action :is_owner?
 

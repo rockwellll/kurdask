@@ -10,10 +10,10 @@ module MarkdownHelper
 
   def markdown(text)
     render_options = {
-        # filer_html: true,
         hard_wrap: true,
         link_attributes: { rel: 'nofollow' },
-        prettify: true
+        prettify: true,
+        filter_html: true
     }
     renderer = HTML.new(render_options)
     extras = {

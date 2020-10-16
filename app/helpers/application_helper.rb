@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 module ApplicationHelper
   # class MarkdownParser
   #   require 'redcarpet'
@@ -26,10 +28,37 @@ module ApplicationHelper
   #   include Rouge::Plugins::Redcarpet
   # end
 
-  include MarkdownHelper
+  # include MarkdownHelper
 
   # def markdown(text)
   #   options = [:hard_wrap, :autolink, :no_intra_emphasis, :fenced_code_blocks]
   #   Markdown.new(text, *options).to_html.html_safe
   # end
+  #
+  #
+  class HT < Redcarpet::Render::HTML
+    def block_code(code, lanuage)
+      Pygments.highlight(code, lexer: lanuage)
+    end
+  end
+  def markdown_v2(text)
+    render_options = {
+        hard_wrap: true,
+        link_attributes: { rel: 'nofollow' },
+        prettify: true,
+        filter_html: true
+    }
+    renderer = HT.new(render_options)
+    extras = {
+        autolink: true,
+        no_intra_emphasis: true,
+        disable_indented_code_blocks: true,
+        fenced_code_blocks: true,
+        strikethrough: true,
+        superscript: true,
+        lax_spacing: true
+    }
+
+    Redcarpet::Markdown.new(renderer, extras).render(text).html_safe
+  end
 end

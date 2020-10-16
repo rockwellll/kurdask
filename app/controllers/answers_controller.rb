@@ -1,9 +1,8 @@
-class QuestionsController < ApplicationController
+class AnswersController < ApplicationController
   include AuthenticationHelper
 
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, only: [:new, :update, :destroy, :edit]
-  before_action :is_owner?, only: [:edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:new, :update, :destroy]
   # GET /questions
   # GET /questions.json
   def index
@@ -78,20 +77,17 @@ class QuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-  def set_question
-    @question = Question.find_by_title params[:title]
+  # Use callbacks to share common setup or constraints between actions.
+  def set_answer
+    @answer = Answer.find params[:id]
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def question_params
     params.require(:question).permit(:title, :description)
   end
 
   def answer_params
     params.require(:answer).permit(:body, :user_id, :question_id)
-  end
-  def is_owner?
-    redirect_back fallback_location: @question, notice: 'Action not allowed'
   end
 end
