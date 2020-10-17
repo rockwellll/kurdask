@@ -81,6 +81,7 @@ ku:
       answer_question: "وه‌ڵام بده‌وه‌"
       answered_by: "له‌لایان"
       answer_your_question: 'وه‌ڵامی خۆت بده‌وه‌'
+      try_to_answer_well: 'هه‌وڵبده‌ به‌ جوانی وه‌ڵام بده‌یته‌وه‌'
   devise:
     sessions:
       user:
