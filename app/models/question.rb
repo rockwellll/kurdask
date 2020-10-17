@@ -13,6 +13,8 @@ class Question < ApplicationRecord
     self.title = title.split(" ").join("-")
   end
 
+  scope :where_title_like, ->(name) { where('title Like ?', "%#{name}%") }
+
   def to_param
     title
   end

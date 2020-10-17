@@ -91,7 +91,8 @@ class QuestionsController < ApplicationController
   def answer_params
     params.require(:answer).permit(:body, :user_id, :question_id)
   end
+
   def is_owner?
-    redirect_back fallback_location: @question, notice: 'Action not allowed'
+    redirect_back fallback_location: @question, notice: 'Action not allowed' unless @question.owner?(current_user)
   end
 end

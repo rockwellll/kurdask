@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full flex-wrap my-2" data-controller=markdown data-markdown-old="<%= @old_value %>">
   <label for="<%= @input_id %>" class="mb-4">هه‌وڵبده‌ زۆرترین زانیاری له‌سه‌ر کێشه‌که‌ت بنووسی</label>
-  <div class="actions flex justify-between">
+  <div class="actions flex justify-between w-full">
     <div>
       <button type="button"
               data-action="markdown#insertCode"
@@ -87,7 +87,5 @@
 
   <%= content %>
 
-  <div>
-    <div class="w-full" data-target="markdown.viewer"></div>
-  </div>
+  <div class="w-full" data-target="markdown.viewer"></div>
 </div>

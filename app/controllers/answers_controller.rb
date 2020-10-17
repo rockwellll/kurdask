@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   include AuthenticationHelper
 
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, only: [:new, :update, :destroy]
+  before_action :authenticate, only: [:new, :update, :destroy, :edit]
   # GET /questions
   # GET /questions.json
   def index
@@ -69,9 +69,10 @@ class AnswersController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
-    @question.destroy
+    q = @answer.question
+    @answer.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to question_path(q), notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

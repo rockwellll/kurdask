@@ -17,7 +17,7 @@
                 ref="input"
                 id="answer_body"
                 name="question[description]"
-                class="resize-y <%= question.errors[:description][0] ? "border-red-300" : "" %>"
+                class="resize-y w-full<%= question.errors[:description][0] ? "border-red-300" : "" %>"
                 rows="10"></textarea>
 
       <% if question.errors[:description] %>
