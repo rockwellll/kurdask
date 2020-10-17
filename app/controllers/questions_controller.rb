@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = params[:query].nil? ? Question.all : Question.where_title_like(params[:query])
   end
 
   # GET /questions/1
