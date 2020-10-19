@@ -18,7 +18,7 @@
     <% end %>
 
     <button type="submit" class="btn-primary-alt p-2 text-sm focus:outline-none focus:shadow-outline">
-      <%= @question.owner?(current_user) ? t('.answer_your_question') : t('.answer_question') %>
+      <%= @question.owner?(current_user) ? t('questions.show.answer_your_question') : t('auth.answer_questions') %>
     </button>
   <% end %>
 <% end %>

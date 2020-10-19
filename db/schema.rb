@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 2020_10_17_172101) do
   end
 
   create_table "views", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "question_id"
-    t.bigint "viewer_id"
-    t.index ["question_id", "viewer_id"], name: "index_views_on_question_id_and_viewer_id", unique: true
-    t.index ["question_id"], name: "index_views_on_question_id"
+    t.string "viewable_type"
+    t.bigint "viewable_id"
+    t.bigint "viewer_id", null: false
+    t.index ["viewable_id", "viewable_type", "viewer_id"], name: "index_views_on_viewable_id_and_viewable_type_and_viewer_id", unique: true
+    t.index ["viewable_type", "viewable_id"], name: "index_views_on_viewable_type_and_viewable_id"
     t.index ["viewer_id"], name: "index_views_on_viewer_id"
   end
 
@@ -82,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_10_17_172101) do
   add_foreign_key "comments", "questions"
   add_foreign_key "comments", "users"
   add_foreign_key "questions", "users"
-  add_foreign_key "views", "questions"
   add_foreign_key "views", "users", column: "viewer_id"
   add_foreign_key "votes", "users", column: "voter_id"
 end

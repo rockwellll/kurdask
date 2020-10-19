@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :questions, param: :title
   resources :answers
-  resource :users
-  devise_for :users
+
+  devise_for :users, param: :username do
+    get '/:username', to: 'users#show'
+  end
 
   post '/question/answer', to: 'questions#answer', as: 'answer_question'
   post '/upvote', to: 'up_vote#store', as: 'upvote'
