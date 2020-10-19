@@ -1,16 +1,15 @@
 class Question < ApplicationRecord
-  include Votable
+  include Votable, Viewable
 
   belongs_to :user
   has_many :comments
   has_many :answers
-  has_many :views
 
   validates :description, presence: true
   validates :title, presence: true
 
   before_save do
-    self.title = title.split("").join("-").downcase
+    self.title = title.split(" ").join("-").downcase
   end
 
   scope :where_title_like, ->(name) { where('title Like ?', "%#{name}%") }

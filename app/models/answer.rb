@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  include Votable
+  include Votable, Viewable
 
   belongs_to :user
   belongs_to :question

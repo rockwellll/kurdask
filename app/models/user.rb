@@ -18,8 +18,6 @@ class User < ApplicationRecord
 
 
   def view(question)
-    v = View.new(viewer_id: id)
-    v.update_attribute :question_id, question.id
-  rescue ActiveRecord::RecordNotUnique
+    views.create! viewable: question rescue ActiveRecord::RecordNotUnique
   end
 end
