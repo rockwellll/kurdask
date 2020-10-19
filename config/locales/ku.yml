@@ -82,6 +82,10 @@ ku:
       answered_by: "له‌لایان"
       answer_your_question: 'وه‌ڵامی خۆت بده‌وه‌'
       try_to_answer_well: 'هه‌وڵبده‌ به‌ جوانی وه‌ڵام بده‌یته‌وه‌'
+  users:
+    show:
+      questions: 'پرسیاره‌کان'
+      answers: 'وه‌ڵامه‌کان'
   devise:
     sessions:
       user:
