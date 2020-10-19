@@ -6,8 +6,4 @@ module Viewable
   included do
     has_many :views, as: :viewable
   end
-
-  def view
-
-  end
 end
