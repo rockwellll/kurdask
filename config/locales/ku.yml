@@ -86,7 +86,10 @@ ku:
     show:
       questions: 'پرسیاره‌کان'
       answers: 'وه‌ڵامه‌کان'
+      user_havent_asked: 'ئه‌م به‌کارهێنه‌ره‌ هیچ پرسیارێکی نه‌کردووه‌'
+      user_havent_answered: 'ئه‌م به‌کارهێنه‌ره‌ وه‌ڵامی هیچ پرسیارێکی نه‌داوه‌'
   devise:
     sessions:
       user:
-        signed_out: "dsadasd"
+        signed_out: "به‌ سه‌رکه‌وتووی ده‌رچویت"
+        signed_in: 'به‌ سه‌رکه‌وتووی داخڵ بویت'

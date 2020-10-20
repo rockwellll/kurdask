@@ -26,8 +26,7 @@
         <b> <%= t 'questions.index.asked_by' %></b>
         <a
           class="link-primary"
-          href="<%= user_show_path question.user.username %>">
-          <%= question.user.username %>
+          href="<%= user_show_path question.user.username %>"><%= question.user.username %>
         </a>
       </h6>
     </div>

@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, format: { without: /\s/ }
 
   before_save do
     self.email = email.downcase
+    self.username = username.strip
   end
 
   has_many :questions, dependent: :destroy
