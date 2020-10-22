@@ -89,6 +89,10 @@ ku:
       user_havent_asked: 'ئه‌م به‌کارهێنه‌ره‌ هیچ پرسیارێکی نه‌کردووه‌'
       user_havent_answered: 'ئه‌م به‌کارهێنه‌ره‌ وه‌ڵامی هیچ پرسیارێکی نه‌داوه‌'
   devise:
+    registrations:
+      user:
+        signed_up: 'هه‌ژماره‌که‌ت به‌ سه‌رکوتووی دروستکرا، ئێستا تۆ داخڵ بویتs'
+
     sessions:
       user:
         signed_out: "به‌ سه‌رکه‌وتووی ده‌رچویت"
