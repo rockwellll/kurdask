@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/users/:username', to: 'users#show', as: 'user_show'
   get '/users/:username/edit', to: 'users#edit', as: 'user_edit'
   delete 'users/:username', to: 'users#destroy', as: 'destroy_user'
+  patch 'users/:username', to: 'users#update'
 
   root "questions#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
