@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true, uniqueness: true, format: { without: /\s/ }
+  scope :find_by_username_or_old_username, -> (name) { where("username = #{name} OR old_username= #{name}")}
 
   before_save do
     self.email = email.downcase
