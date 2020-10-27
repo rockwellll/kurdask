@@ -53,3 +53,7 @@ gem 'redcarpet'
 gem 'rouge-rails'
 gem "view_component", require: "view_component/engine"
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
+
+group :production do
+  gem 'pg', '1.2.3'
+end
