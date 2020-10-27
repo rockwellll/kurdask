@@ -48,8 +48,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+postgres: &postgres
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
 production:
-  <<: *default
+  <<: *postgres
   database: kurdoverflow_production
   username: kurdoverflow
   password: <%= ENV['KURDOVERFLOW_DATABASE_PASSWORD'] %>
