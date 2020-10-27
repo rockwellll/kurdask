@@ -9,7 +9,7 @@
 
 
         <% if current_user && current_user.id == @user.id %>
-          <div class="flex flex-col my-4" data-controller=edit data-edit-initial="<%= @user.username %>">
+          <div class="flex flex-col my-4 items-center" data-controller=edit data-edit-initial="<%= @user.username %>">
             <div class="flex">
               <button
                 data-target="edit.editButton"
@@ -51,8 +51,12 @@
           <small data-target="edit.username"><%= @user.username %></small>
         <% end %>
 
-        <section class="w-full md:px-5">
-          <p><%= @user.about %></p>
+        <section class="w-full md:px-5 flex justify-center text-sm">
+          <% if @user.about.nil? %>
+            <p><%= t '.any_info_will_show_here' %></p>
+          <% else %>
+            <p><%= @user.about %></p>
+          <% end %>
         </section>
       </header>
     </div>

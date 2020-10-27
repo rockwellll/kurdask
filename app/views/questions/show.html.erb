@@ -54,7 +54,19 @@
           <% end  %>
           <div class="my-2 w-11/12 mt-3 mb-2 mr-2">
             <%= markdown @question.description %>
+
+
+            <footer class="flex justify-end items-center mt-2">
+
+              <small class="mb-2">
+                <%= t 'questions.show.answered_by' %>
+                <a href="<%= user_show_path(username: @question.user.username) %>?tab=questions " class="link-primary">
+                  <%= @question.user.username %>
+                </a>
+              </small>
+            </footer>
           </div>
+
         </div>
       </main>
       <hr class="bg-gray-300 mb-1 md:mb-4"/>

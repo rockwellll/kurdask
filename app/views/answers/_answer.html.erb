@@ -54,16 +54,15 @@
       </ul>
 
     </aside>
-    <main id="<%= answer.user.username.concat(answer.user.id) %>" class="rounded border border-gray-200 my-2 p-3 w-full mx-2">
+    <main class="rounded border border-gray-200 my-2 p-3 w-full mx-2">
       <section>
         <%= markdown answer.body %>
       </section>
 
       <footer class="flex justify-end items-center mt-2">
-
         <small class="mb-2">
           <%= t 'questions.show.answered_by' %>
-          <a href="<%= user_show_path answer.user.username.strip %>" class="link-primary"><%= answer.user.username.strip %></a>
+          <%= link_to answer.user.username, user_show_path(username: answer.user.username).concat('?tab=questions'), class: 'link-primary' %>
         </small>
       </footer>
     </main>
