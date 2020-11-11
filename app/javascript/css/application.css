@@ -172,6 +172,11 @@ pre {
     }
 }
 
+.markdown-container p a {
+    @apply text-accent;
+    text-decoration: underline;
+    text-decoration-color:#2A4AA2 ;
+}
 /*.color-primary {*/
 /*    color: #8382f5;*/
 /*}*/
