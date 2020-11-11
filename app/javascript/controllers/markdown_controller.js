@@ -1,6 +1,5 @@
 import {Controller} from "stimulus"
 import marked from "marked"
-import hljs from "highlight.js"
 
 export default class extends Controller {
     static targets = ["viewer", "input", "test"]
