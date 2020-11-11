@@ -133,6 +133,7 @@ a.link-accent:hover {
     max-width: 1264px;
 }
 
+/* purgecss ignore */
 pre {
     direction: ltr;
     @apply text-sm
@@ -172,6 +173,7 @@ pre {
     }
 }
 
+/* purgecss ignore */
 .m-container p a {
     @apply text-primary;
     text-decoration: underline;
@@ -241,6 +243,7 @@ pre {
 
 /*.link:hover {*/
 /*    color: #736EFF;*/
+/* purgecss ignore */
 pre{
     background-color: #eee;
     padding: 10px;
@@ -249,6 +252,7 @@ pre{
     border-radius: 5px;
     overflow: auto;
 }
+/* purgecss ignore */
 code{
     background-color: #eee;
     padding: 1px 3px;
@@ -256,6 +260,7 @@ code{
     -moz-border-radius: 2px;
     border-radius: 2px;
 }
+/* purgecss ignore */
 
 .highlight {
     @apply mt-2
