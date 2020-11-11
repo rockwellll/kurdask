@@ -1,8 +1,8 @@
 <div class="flex flex-col md:flex-row justify-center items-start w-full p-2 border-b">
 
   <div class="flex md:hidden w-full justify-end items-center">
-    <small><%= question.views %> <%= t 'questions.index.views' %></small>
-    <small class="mr-2"><%= question.views %> <%= t 'questions.index.answers' %></small>
+    <small><%= question.views.count %> <%= t 'questions.index.views' %></small>
+    <small class="mr-2"><%= question.answers.count %> <%= t 'questions.index.answers' %></small>
   </div>
 
 
