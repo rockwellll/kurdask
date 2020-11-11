@@ -172,7 +172,7 @@ pre {
     }
 }
 
-.markdown-container p a {
+.m-container p a {
     @apply text-primary;
     text-decoration: underline;
     text-decoration-color:#2A4AA2 ;
