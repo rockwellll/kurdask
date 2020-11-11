@@ -58,33 +58,59 @@
 /*    box-shadow:0 5px 15px #000;*/
 /*}*/
 
-
+/* purgecss ignore */
 .hll { background-color: #ffffcc }
+/* purgecss ignore */
 .c { color: #888888 } /* Comment */
+/* purgecss ignore */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+/* purgecss ignore */
 .k { color: #008800; font-weight: bold } /* Keyword */
+/* purgecss ignore */
 .cm { color: #888888 } /* Comment.Multiline */
+/* purgecss ignore */
 .cp { color: #cc0000; font-weight: bold } /* Comment.Preproc */
+/* purgecss ignore */
 .c1 { color: #888888 } /* Comment.Single */
+/* purgecss ignore */
 .cs { color: #cc0000; font-weight: bold; background-color: #fff0f0 } /* Comment.Special */
+/* purgecss ignore */
 .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+/* purgecss ignore */
 .ge { font-style: italic } /* Generic.Emph */
+/* purgecss ignore */
 .gr { color: #aa0000 } /* Generic.Error */
+/* purgecss ignore */
 .gh { color: #303030 } /* Generic.Heading */
+/* purgecss ignore */
 .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+/* purgecss ignore */
 .go { color: #888888 } /* Generic.Output */
+/* purgecss ignore */
 .gp { color: #555555 } /* Generic.Prompt */
+/* purgecss ignore */
 .gs { font-weight: bold } /* Generic.Strong */
+/* purgecss ignore */
 .gu { color: #606060 } /* Generic.Subheading */
+/* purgecss ignore */
 .gt { color: #aa0000 } /* Generic.Traceback */
+/* purgecss ignore */
 .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
+/* purgecss ignore */
 .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
+/* purgecss ignore */
 .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
+/* purgecss ignore */
 .kp { color: #008800 } /* Keyword.Pseudo */
+/* purgecss ignore */
 .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
+/* purgecss ignore */
 .kt { color: #888888; font-weight: bold } /* Keyword.Type */
+/* purgecss ignore */
 .m { color: #0000DD; font-weight: bold } /* Literal.Number */
+/* purgecss ignore */
 .s { color: #dd2200; background-color: #fff0f0 } /* Literal.String */
+/* purgecss ignore */
 .na { color: #336699 } /* Name.Attribute */
 .nb { color: #003388 } /* Name.Builtin */
 .nc { color: #bb0066; font-weight: bold } /* Name.Class */
