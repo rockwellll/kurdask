@@ -9,7 +9,7 @@ class Question < ApplicationRecord
   validates :title, presence: true
 
   before_save do
-    self.title = title.split(" ").join("-").downcase
+    self.title = title.split(" ").join("-").downcase.split(".").join("");
   end
 
   scope :where_title_like, ->(name) { where('title Like ?', "%#{name}%") }
