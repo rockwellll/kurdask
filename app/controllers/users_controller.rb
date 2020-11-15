@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :set_user
   before_action :is_self?, only: [:destroy, :edit]
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user_items = @user.questions
     @user_items = @user.answers if params[:tab] == 'answer'
