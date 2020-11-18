@@ -24,9 +24,7 @@ module Votable
     vote = votes.where(voter_id: voter_id)
     return true if votes.empty?
 
-    puts "hell"
-
-    Vote.delete vote[0].id unless vote[0].nil?
+    Vote.delete vote[0].id
     false
   end
 end
